@@ -16,14 +16,13 @@ class DirWalker
     def do_walk(dir)
       Dir.foreach(dir) do |fn|
         full_fn  = File.join(dir, fn)
-        rel_path = path.join('/')
-        next if ignore?(rel_path)
         if File.exists?(full_fn) && !%w(. ..).include?(fn)
           path << fn
+          rel_path = path.join('/')
           if File.file?(full_fn)
             result << rel_path
           else
-            do_walk(full_fn)
+            do_walk(full_fn) unless ignore?(rel_path)
           end
           path.pop
         end
