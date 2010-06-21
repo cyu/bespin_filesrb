@@ -1,0 +1,4 @@
+mount_points:
+  bespin_filesrb: /Users/calvinyu/Projects/bespin_filesrb
+ignores:
+  - \/\.git(\/.*)?$
