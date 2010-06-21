@@ -12,6 +12,6 @@ To configure the server, just take <b>config.sample.yml</b>, rename it to <b>con
 
   ruby files.rb
 
-Alterntively, I've provided a </b>config.ru</b> file so you can run this on Passenger (or theoretically on any Rack
+Alterntively, I've provided a <b>config.ru</b> file so you can run this on Passenger (or theoretically on any Rack
 supported server).
   
