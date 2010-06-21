@@ -18,7 +18,9 @@ use Rack::Cors do |config|
   end
 end
 
-set :mount_points, YAML.load_file(File.join(File.dirname(__FILE__), 'mount_points.yml'))
+config = YAML.load_file(File.join(File.dirname(__FILE__), 'config.yml'))
+set :mount_points, config['mount_points']
+set :ignores, config['ignores'] ? config['ignores'].collect{|i|Regexp.compile(i)} : nil
 
 helpers do
   def mount_point
@@ -42,7 +44,9 @@ get '/file/list_all/' do
 
   files = []
   options.mount_points.each_pair do |name, path|
-    files.concat(DirWalker.new(name).walk(path))
+    walker = DirWalker.new(name)
+    walker.ignores = options.ignores
+    files.concat(walker.walk(path))
   end
 
   Yajl::Encoder.encode(files)
