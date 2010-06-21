@@ -4,14 +4,14 @@ This is a simple file server for Bespin.  This server is meant to work along wit
 
 http://github.com/cyu/bespin_composite_filesource
 
-Like I said earlier, this is a *very* simple server implementation, developed to only be run in a localhost setting.  It would be wise to review the source with some security-colored glasses before running it in a more public environment.
+Like I said earlier, this is a <b>very</b> simple server implementation, developed to only be run in a localhost setting.  It would be wise to review the source with some security-colored glasses before running it in a more public environment.
 
 == Usage
 
-To configure the server, just take *config.sample.yml*, rename it to *config.yml* and change add mount points to match you local setup.  When done, just run *files.rb*:
+To configure the server, just take <b>config.sample.yml</b>, rename it to <b>config.yml</b> and change add mount points to match you local setup.  When done, just run <b>files.rb</b>:
 
   ruby files.rb
 
-Alterntively, I've provided a *config.ru* file so you can run this on Passenger (or theoretically on any Rack
+Alterntively, I've provided a </b>config.ru</b> file so you can run this on Passenger (or theoretically on any Rack
 supported server).
   
