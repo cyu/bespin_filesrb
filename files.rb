@@ -59,7 +59,7 @@ get '/file/at/*' do
 end
 
 put '/file/at/*' do
-  if request.body.length == 0
+  if request.content_length.nil? || request.content_length.to_i == 0
     FileUtils.mkdir_p translated_path
   else
     File.open(translated_path, 'w') {|f| FileUtils.copy_stream(request.body, f)}
